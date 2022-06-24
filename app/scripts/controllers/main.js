@@ -114,13 +114,11 @@ angular.module('T-FlixServerApp')
               function RemoveWaste(){
                 $scope.remove(torrent);
               }, tortime);
-          } else{
-            console.log('Starting Timeout 10 seconds');
+          } else {
             setTimeout(
               function RemoveWaste(){
                 $scope.remove(torrent);
               }, 10000);
-            localStorage.setItem('timeout', 0);
           }
         });
         $scope.link = '';
