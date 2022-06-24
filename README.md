@@ -5,7 +5,7 @@ T-Flix-server
 
 Streaming torrent client for node.js with web ui.
 
-![screen capture](https://cdn.jsdelivr.net/gh/asapach/T-Flix-server@master/capture.gif)
+![screen capture](https://github.com/Inside4ndroid/T-Flix/raw/main/app/images/screener.png)
 
 Based on [torrent-stream](https://github.com/mafintosh/torrent-stream), inspired by [PeerFlix](https://github.com/asapach/peerflix-server).
 
