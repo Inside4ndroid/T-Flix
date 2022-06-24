@@ -78,7 +78,7 @@
       <tbody ng-if="results.length > 0">
         <tr ng-repeat="result in results">
           <th scope="row">{{ results.indexOf(result) + 1 }}</th>
-          <td><a class="btn-link result-link" ng-click="downloadSearchResult(result.link)">{{ result.name }}</a></td>
+          <td><a class="btn-link result-link" ng-click="downloadSearchResult(result.link)" style="color: #ff9795;">{{ result.name }}</a></td>
           <td>{{ result.seeds }}</td>
           <td>{{ result.leeches }}</td>
           <td>{{ result.size }}</td>
