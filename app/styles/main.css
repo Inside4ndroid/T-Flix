@@ -234,7 +234,7 @@ html.dark {
 }
 .dark body {
   background-color: #080B0C;
-  color: rgb(211, 205, 197);
+  color: #a94442;
 }
 .dark .jumbotron {
   background-color: #141619;
@@ -245,7 +245,7 @@ html.dark {
 .dark .input-group-addon {
   background-color: #141619;
   border-color: rgb(52, 59, 61);
-  color: rgb(186, 179, 167);
+  color: #a94442;
 }
 .dark .form-control {
   background-color: #080B0C;
