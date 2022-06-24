@@ -14,7 +14,7 @@
   "main": "./server/bin.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/asapach/T-Flix-server.git"
+    "url": "https://github.com/Inside4ndroid/T-Flix.git"
   },
   "keywords": [
     "bittorrent",

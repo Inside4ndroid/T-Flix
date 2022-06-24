@@ -1,22 +1,18 @@
 T-Flix-server
 ===============
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![Node.js Version][node-version-image]][node-version-url]
-[![Build Status][travis-image]][travis-url]
-
-<img src="https://cdn.jsdelivr.net/gh/asapach/T-Flix-server@master/app/images/logo.png" alt="logo" height="256">
+<img src="https://github.com/Inside4ndroid/T-Flix/raw/main/app/images/logo.png" alt="logo" height="200" width="200">
 
 Streaming torrent client for node.js with web ui.
 
 ![screen capture](https://cdn.jsdelivr.net/gh/asapach/T-Flix-server@master/capture.gif)
 
-Based on [torrent-stream](https://github.com/mafintosh/torrent-stream), inspired by [T-Flix](https://github.com/mafintosh/T-Flix).
+Based on [torrent-stream](https://github.com/mafintosh/torrent-stream), inspired by [PeerFlix](https://github.com/asapach/peerflix-server).
 
 ## Usage
 
-1. `npm install -g T-Flix-server`
+1. `git clone https://github.com/asapach/peerflix-server.git`
+1. `npm install -g`
 1. `T-Flix-server`
 1. Open your browser at [http://localhost:9000/](http://localhost:9000/)
 1. Enjoy!
@@ -65,8 +61,9 @@ You might also want to enable logging -- see the [docs](https://github.com/forev
 
 ## FAQ
 
-[How do I add password protection?](https://github.com/asapach/T-Flix-server/wiki/How-to-put-a-password-on-T-Flix-server)
+[How to put NCSA Auth password on peerflix server](https://github.com/Inside4ndroid/T-Flix/wiki/How-to-put-NCSA-Auth-password-on-peerflix-server)
 
+[How to put a password on peerflix server using basic auth](https://github.com/Inside4ndroid/T-Flix/wiki/How-to-put-a-password-on-peerflix-server-using-basic-auth)
 ## Development
 
 See [Development.md](Development.md)
@@ -78,12 +75,3 @@ See [REST.md](REST.md)
 ## Docker
 
 See [Docker.md](Docker.md)
-
-[npm-image]: https://img.shields.io/npm/v/T-Flix-server.svg?style=flat
-[npm-url]: https://npmjs.org/package/T-Flix-server
-[node-version-image]: https://img.shields.io/node/v/T-Flix-server.svg?style=flat
-[node-version-url]: http://nodejs.org/download/
-[travis-image]: https://img.shields.io/travis/asapach/T-Flix-server.svg?style=flat
-[travis-url]: https://travis-ci.org/asapach/T-Flix-server
-[downloads-image]: https://img.shields.io/npm/dm/T-Flix-server.svg?style=flat
-[downloads-url]: https://npmjs.org/package/T-Flix-server
