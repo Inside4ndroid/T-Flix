@@ -283,10 +283,10 @@ html.dark {
   background-color: #080b0c;
 }
 .dark .btn {
-  color: #EEE;
+  color: #a94442;
 }
 .dark .close {
-  color: #FFF;
+  color: #a94442;
 }
 .dark .progress {
   background-color: rgb(15, 18, 19);
