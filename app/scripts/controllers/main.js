@@ -26,7 +26,7 @@ angular.module('T-FlixServerApp')
     function setNewTime(time) {
 
       localStorage.setItem('timeout', time);
-      console.log(global);
+      console.log(time);
     }
 
     function load() {
