@@ -18,6 +18,7 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
+  "t_timout": 0,
   "globals": {
     "angular": false,
     "_": false

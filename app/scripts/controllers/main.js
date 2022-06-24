@@ -11,8 +11,6 @@ function openOverlay() {
   document.querySelector('.overlay .backdrop').addEventListener('click', closeOverlay);
 }
 
-
-
 /* global Push */
 angular.module('T-FlixServerApp')
   .controller('MainCtrl', function ($scope, $resource, $log, $q, $upload, torrentSocket) {
@@ -25,9 +23,8 @@ angular.module('T-FlixServerApp')
     var Torrent = $resource('/torrents/:infoHash');
     var Search = $resource('/search/:param');
 
-    var global;
-
     function setNewTime(time) {
+
       localStorage.setItem('timeout', time);
       console.log(global);
     }
@@ -90,6 +87,7 @@ angular.module('T-FlixServerApp')
     };
 
     $scope.setstoretime = function (time) {
+
       setNewTime(time);
     };
 
@@ -116,10 +114,9 @@ angular.module('T-FlixServerApp')
               function RemoveWaste(){
                 $scope.remove(torrent);
               }, tortime);
-          } else {
+          } else{
             localStorage.setItem('timeout', 0);
           }
-
         });
         $scope.link = '';
       }
