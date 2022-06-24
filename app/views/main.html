@@ -1,0 +1,203 @@
+<div class="overlay">
+  <video src="" type="video/mp4" width="auto" height="auto" controls></video>
+  <div class="backdrop"></div>
+</div>
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li>
+      <button type="button" class="btn dark-mode-toggle" ng-click="toggleDarkMode()">
+        <i class="fa fa-circle-half-stroke"></i>
+      </button>
+    </li>
+    <li>
+      <a href="https://github.com/asapach/T-Flix-server" target="_blank">
+        <i class="fa-brands fa-github"></i> About</a>
+    </li>
+    <li class="active"><a href="">Torrents</a></li>
+  </ul>
+  <h3 class="text-muted text-nowrap"><img src="images/logo.png" alt="logo" height="40"> <span>T-Flix server</span></h3>
+</div>
+<div class="ng-scope" style="
+    margin-bottom: 50px;
+">
+
+  <span style="display: block;text-align: center;margin-bottom: 20px;font-size: 22px;">Set Torrents to autodelete in...</span>
+
+  <a class="input-group-addon btn btn-success" href="" ng-click="setstoretime(0)">
+    <span class="fa"></span>
+    Never
+  </a>
+  <a class="input-group-addon btn btn-success" href="" ng-click="setstoretime(10000)">
+    <span class="fa "></span>
+    1 Hours
+  </a>
+  <a class="input-group-addon btn btn-success" href="" ng-click="setstoretime(20000)">
+    <span class="fa "></span>
+    3 Hours
+  </a>
+  <a class="input-group-addon btn btn-success" href="" ng-click="setstoretime(30000)">
+    <span class="fa "></span>
+    6 Hours
+  </a>
+  <a class="input-group-addon btn btn-success" href="" ng-click="setstoretime(40000)">
+    <span class="fa "></span>
+    12 Hours
+  </a>
+  <a class="input-group-addon btn btn-success" href="" ng-click="setstoretime(50000)">
+    <span class="fa "></span>
+    24 Hours
+  </a>
+
+</div>
+<div class="jumbotron" ng-file-drop ng-file-change="upload($files)">
+  <h1>Stream Torrents</h1>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">search:</span>
+      <input type="text" class="form-control search-box" placeholder="Find torrents using 1337x" ng-model="query" ng-keypress="keypressSearch($event)">
+      <a class="input-group-addon btn clear-search" href="" ng-click="clearSearch()">
+        <span class="fa fa-xmark"></span>
+      </a>
+      <a class="input-group-addon btn btn-success" href="" ng-click="search()">
+        <span class="fa fa-magnifying-glass"></span>
+        Search
+      </a>
+    </div>
+  </div>
+  <div class="panel panel-default" ng-if="results !== undefined">
+    <table class="table">
+      <thead ng-if="results.length === 0">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">No results found!</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <thead class="list-group-item-header" ng-if="results.length > 0">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Se</th>
+          <th scope="col">Le</th>
+          <th scope="col">Size</th>
+        </tr>
+      </thead>
+      <tbody ng-if="results.length > 0">
+        <tr ng-repeat="result in results">
+          <th scope="row">{{ results.indexOf(result) + 1 }}</th>
+          <td><a class="btn-link result-link" ng-click="downloadSearchResult(result.link)">{{ result.name }}</a></td>
+          <td>{{ result.seeds }}</td>
+          <td>{{ result.leeches }}</td>
+          <td>{{ result.size }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">torrent:</span>
+      <input type="text" class="form-control" placeholder="Torrent or magnet link or hash" ng-model="link" ng-keypress="keypressDownload($event)">
+      <a class="input-group-addon btn btn-success" href="" ng-click="download()">
+        <span class="fa fa-cloud-download"></span>
+        Download
+      </a>
+    </div>
+  </div>
+  <p class="text-right">
+    <i class="fa fa-upload"></i>
+    Drop .torrent files here or
+    <span class="btn-link" ng-file-select ng-file-change="upload($files)">
+      browse to upload
+    </span>
+  </p>
+</div>
+
+<div ng-if="!torrents.length" class="alert alert-info" role="alert">
+  <i class="fa fa-film"></i> Go get some torrents to watch!
+</div>
+
+<div class="row content">
+  <div ng-repeat="torrent in torrents" class="panel panel-default" ng-class="{ 'panel-warning': !torrent.ready, 'panel-success': torrent.interested }">
+    <div class="panel-heading">
+      <button type="button" class="close" ng-click="remove(torrent)">&times;</button>
+      <span class="fa" ng-class="{
+        'fa-cloud-upload': torrent.ready && !torrent.interested,
+        'fa-refresh fa-spin': !torrent.ready,
+        'fa-exchange': torrent.interested }">
+      </span>
+      <span ng-if="!torrent.name">Fetching metadata...</span>
+      {{ torrent.name }}
+    </div>
+    <div class="panel-body">
+      <div class="progress progress-striped" ng-class="{ active: torrent.interested }">
+        <div ng-class-even="'space'" ng-class-odd="'progress-bar progress-bar-success'"
+             ng-repeat="progress in torrent.progress track by $index" ng-style="{ width: progress + '%' }"></div>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-header" ng-if="torrent.files.length > 1">
+          <label class="list-group-item-heading text-nowrap">
+            <input type="checkbox" ng-model="torrent.selected" ng-click="selectAll(torrent)"/>
+            <span class="fa fa-cloud-download"></span>
+            All {{ torrent.files.length }} files ({{ torrent.length / 1024 / 1024 | number:1 }} MB)
+          </label><span>&nbsp;&mdash;</span>
+          <span class="list-group-item-text text-nowrap">
+            Download as
+            <a ng-href="/torrents/{{ torrent.infoHash }}/archive" target="_blank">
+              <span class="fa fa-file-zipper"></span> archive
+            </a>
+            or
+            <a ng-href="/torrents/{{ torrent.infoHash }}/files" target="_blank">
+              <span class="fa fa-list"></span> playlist
+            </a>
+          </span>
+        </li>
+        <li class="list-group-item text-nowrap" ng-repeat="file in torrent.files">
+          <input type="checkbox" ng-model="file.selected" ng-click="select(torrent, file)"/>
+          <span class="fa fa-cloud-download"></span>
+          <button type="button" class="btn btn-xs play" ng-click="play(file.link)" ng-if="isVideo(file.name)">
+            <span class="fa fa-play"></span>
+          </button>
+          <a ng-href="{{ file.link }}" target="_blank">
+            {{ file.name }} ({{ file.length / 1024 / 1024 | number:1 }} MB)
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-footer">
+      <ul class="list-unstyled list-inline">
+        <li class="text-nowrap">
+          <button type="button" class="btn btn-xs" ng-click="pause(torrent)">
+            <span class="fa {{ torrent.stats.paused ? 'fa-play' : 'fa-pause' }}"></span>
+          </button>
+        </li>
+        <li class="text-nowrap" ng-show="torrent.stats">
+          <strong>Speed:</strong>
+          <span class="label label-success">{{ torrent.stats.speed.down / 1024 | number:1 }}</span> /
+          <span class="label label-danger">{{ torrent.stats.speed.up / 1024 | number:1 }}</span> KB/s
+        </li>
+        <li class="text-nowrap" ng-show="torrent.stats" ng-if="torrent.stats.traffic.down > 1 && torrent.stats.eta > 0">
+          <strong>ETA:</strong>
+          <span class="label label-primary">{{ torrent.stats.eta / 60 | number:0 }}</span> min
+        </li>
+        <li class="text-nowrap" ng-show="torrent.stats">
+          <strong>Traffic:</strong>
+          <span class="label label-success">{{ torrent.stats.traffic.down / 1024 / 1024 | number:1 }}</span> /
+          <span class="label label-danger">{{ torrent.stats.traffic.up / 1024 / 1024 | number:1 }}</span> MB
+        </li>
+        <li class="text-nowrap" ng-show="torrent.stats">
+          <strong>Peers:</strong>
+          <span class="label label-success">{{ torrent.stats.peers.unchocked | number }}</span> /
+          <span class="label label-default">{{ torrent.stats.peers.total | number }}</span>
+        </li>
+        <li class="text-nowrap" ng-show="torrent.stats">
+          <strong>Queue:</strong>
+          <span class="label label-primary">{{ torrent.stats.queue | number }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p><span class="fa fa-heart"></span> T-Flix</p>
+</div>
