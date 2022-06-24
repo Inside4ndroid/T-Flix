@@ -10,7 +10,9 @@
         <i class="fa-brands fa-github"></i> About</a>
     </li>
   </ul>
-  <h3 class="text-muted text-nowrap"><img src="images/logo.png" alt="logo" height="40"><span>T-Flix server</span></h3>
+  <h3 class="text-muted text-nowrap"><img src="images/logo.png" alt="logo" height="40"><span style="
+    margin-left: 20px;
+    color: #a94442;">T-Flix server</span></h3>
 </div>
 <div class="ng-scope" style="
     margin-bottom: 50px;
@@ -97,7 +99,8 @@
   <p class="text-right">
     <i class="fa fa-upload"></i>
     Drop .torrent files here or
-    <span class="btn-link" ng-file-select ng-file-change="upload($files)">
+    <span class="btn-link" ng-file-select="" ng-file-change="upload($files)" style="
+    color: #ff9795;">
       browse to upload
     </span>
   </p>
@@ -133,11 +136,11 @@
           </label><span>&nbsp;&mdash;</span>
           <span class="list-group-item-text text-nowrap">
             Download as
-            <a ng-href="/torrents/{{ torrent.infoHash }}/archive" target="_blank">
+            <a ng-href="/torrents/{{ torrent.infoHash }}/archive" target="_blank" style="color: #ff9795;">
               <span class="fa fa-file-zipper"></span> archive
             </a>
             or
-            <a ng-href="/torrents/{{ torrent.infoHash }}/files" target="_blank">
+            <a ng-href="/torrents/{{ torrent.infoHash }}/files" target="_blank" style="color: #ff9795;">
               <span class="fa fa-list"></span> playlist
             </a>
           </span>
@@ -148,7 +151,7 @@
           <button type="button" class="btn btn-xs play" ng-click="play(file.link)" ng-if="isVideo(file.name)">
             <span class="fa fa-play"></span>
           </button>
-          <a ng-href="{{ file.link }}" target="_blank">
+          <a ng-href="{{ file.link }}" target="_blank" style="color: #ff9795;">
             {{ file.name }} ({{ file.length / 1024 / 1024 | number:1 }} MB)
           </a>
         </li>
