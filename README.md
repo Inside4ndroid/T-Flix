@@ -71,7 +71,3 @@ See [Development.md](Development.md)
 ## REST API
 
 See [REST.md](REST.md)
-
-## Docker
-
-See [Docker.md](Docker.md)
