@@ -114,7 +114,9 @@ angular.module('T-FlixServerApp')
               function RemoveWaste(){
                 $scope.remove(torrent);
               }, tortime);
-          } else {
+          }
+
+          if($scope.key){
             setTimeout(
               function RemoveWaste(){
                 $scope.remove(torrent);
