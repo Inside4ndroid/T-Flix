@@ -171,7 +171,7 @@
         </li>
         <li class="text-nowrap" ng-show="torrent.stats" ng-if="torrent.stats.traffic.down > 1 && torrent.stats.eta > 0">
           <strong>ETA:</strong>
-          <span class="label label-primary">{{ torrent.stats.eta / 60 | number:0 }}</span> min
+          <span class="label label-primary" style="background-color: #d9534f;">{{ torrent.stats.eta / 60 | number:0 }}</span> min
         </li>
         <li class="text-nowrap" ng-show="torrent.stats">
           <strong>Traffic:</strong>
@@ -185,7 +185,7 @@
         </li>
         <li class="text-nowrap" ng-show="torrent.stats">
           <strong>Queue:</strong>
-          <span class="label label-primary">{{ torrent.stats.queue | number }}</span>
+          <span class="label label-primary" style="background-color: #d9534f;">{{ torrent.stats.queue | number }}</span>
         </li>
       </ul>
     </div>
