@@ -113,6 +113,9 @@
 <div class="row content">
   <div ng-repeat="torrent in torrents" class="panel panel-default" ng-class="{ 'panel-warning': !torrent.ready, 'panel-success': torrent.interested }">
     <div class="panel-heading">
+      <button type="button" class="btn btn-xs play" ng-click="play(file.link)" ng-if="isVideo(file.name)">
+        <span class="fa fa-play"></span>
+      </button>
       <button type="button" class="close" ng-click="remove(torrent)">&times;</button>
       <span class="fa" ng-class="{
         'fa-cloud-upload': torrent.ready && !torrent.interested,
