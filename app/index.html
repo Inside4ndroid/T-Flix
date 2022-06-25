@@ -8,13 +8,6 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="robots" content="noarchive">
   <link rel="shortcut icon" href="favicon.ico?new" />
-  <!-- build:css styles/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/components-font-awesome/css/all.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css({.tmp,app}) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
@@ -131,6 +124,23 @@
 <body ng-app="T-FlixServerApp">
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
+
+    <div class="overlay">
+      <video src="" type="video/mp4" width="auto" height="auto" controls></video>
+      <div class="backdrop"></div>
+    </div>
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li>
+          <a href="https://github.com/Inside4ndroid/T-Flix" target="_blank" style="
+    color: #820012;">
+            <i class="fa-brands fa-github"></i> About</a>
+        </li>
+      </ul>
+      <h3 class="text-muted text-nowrap"><img src="images/logo.png" alt="logo" height="40"><span style="
+    margin-left: 20px;
+    color: #a94442;">T-Flix server</span></h3>
+    </div>
 
     <h2>Modal Login Form</h2>
 
