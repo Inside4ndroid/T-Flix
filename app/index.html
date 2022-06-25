@@ -1,244 +1,49 @@
 <!doctype html>
-<html class="dark"><head>
+<html class="dark">
+<head>
   <meta charset="utf-8">
   <title>T-Flix server</title>
   <meta name="description" content="T-Flix server">
   <meta name="viewport" content="width=device-width">
   <meta name="robots" content="noindex, nofollow">
   <meta name="robots" content="noarchive">
-  <link rel="shortcut icon" href="favicon.ico?new">
+  <link rel="shortcut icon" href="favicon.ico?new" />
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/all.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css({.tmp,app}) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
-  <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
-
-    /* Full-width input fields */
-    input[type=text], input[type=password] {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-      width: auto;
-      padding: 10px 18px;
-      background-color: #f44336;
-    }
-
-    /* Center the image and position the close button */
-    .imgcontainer {
-      text-align: center;
-      margin: 24px 0 12px 0;
-      position: relative;
-    }
-
-    img.avatar {
-      width: 20%;
-    }
-
-    .container {
-      padding: 16px;
-    }
-
-    span.psw {
-      float: right;
-      padding-top: 16px;
-    }
-
-    /* The Modal (background) */
-    .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-      padding-top: 60px;
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-      background-color: rgb(0,0,0);
-      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-      border: 1px solid #888;
-      width: 50%; /* Could be more or less, depending on screen size */
-    }
-
-    /* The Close Button (x) */
-    .close {
-      position: absolute;
-      right: 25px;
-      top: 0;
-      color: #000;
-      font-size: 35px;
-      font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: red;
-      cursor: pointer;
-    }
-
-    /* Add Zoom Animation */
-    .animate {
-      -webkit-animation: animatezoom 0.6s;
-      animation: animatezoom 0.6s
-    }
-
-    @-webkit-keyframes animatezoom {
-      from {-webkit-transform: scale(0)}
-      to {-webkit-transform: scale(1)}
-    }
-
-    @keyframes animatezoom {
-      from {transform: scale(0)}
-      to {transform: scale(1)}
-    }
-
-    /* Change styles for span and cancel button on extra small screens */
-    @media screen and (max-width: 300px) {
-      span.psw {
-        display: block;
-        float: none;
-      }
-      .cancelbtn {
-        width: 100%;
-      }
-    }
-  </style>
-
-
 </head>
-<body ng-app="T-FlixServerApp" style="text-align: -webkit-center;">
+<body ng-app="T-FlixServerApp">
 <!-- Add your site or application content here -->
 <div class="container" ng-view=""></div>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="bower_components/angular-socket-io/socket.js"></script>
+<script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+<script src="bower_components/push.js/push.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-<div class="overlay">
-  <video src="" type="video/mp4" width="auto" height="auto" controls=""></video>
-  <div class="backdrop"></div>
-</div>
-<div class="header">
-  <img src="images/logo.png" alt="logo" height="40" style="
-    height: 80px;
-">
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/services/torrent-socket.js"></script>
+<!-- endbuild -->
 
-  <h3 class="text-muted text-nowrap" style="
-    text-align: center;
-    margin-top: 20px;
-"><span style="
-    margin-left: 20px;
-    color: #a94442;
-    font-size: xxx-large;
-    "> T-Flix server</span>
-
-
-
-
-  </h3>
-
-</div>
-
-
-
-<button class="input-group-addon btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width: 100px;height: 25px;margin-top: 50px;cursor: pointer;">Login</button>
-
-<div id="id01" class="modal" style="display: block;">
-
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-      <img src="images/logo.png" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="container">
-      <label ><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required="" style="text-align: -webkit-center;">
-
-      <label ><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required="" style="
-    text-align: -webkit-center;
-">
-
-      <button type="submit" class="input-group-addon btn btn-success" style="
-    width: 100px;
-    height: 25px;
-    margin-top: 50px;
-    cursor: pointer;
-">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-    <span class="psw" style="float: none;padding-top: unset;">Forgot <a href="#" style="
-    color: #f44336;
-">password?</a></span>
-
-    <div class="container" style="background-color:rgba(0,0,0,0.4)">
-
-
-
-    </div>
-  </form>
-</div>
-
-<script>
-  // Get the modal
-  var modal = document.getElementById('id01');
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
-<script src="//185.193.126.191:35729/livereload.js?snipver=1" async="" defer=""></script>
-
-
-<script>
-  (function() {
-    var ws = new WebSocket('ws://' + window.location.host +
-      '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
-      'referrer=' + encodeURIComponent(window.location.pathname));
-    ws.onmessage = function (msg) {
-      if (msg.data === 'reload') {
-        window.location.reload();
-      }
-      if (msg.data.startsWith('update-css ')) {
-        var messageId = msg.data.substring(11);
-        var links = document.getElementsByTagName('link');
-        for (var i = 0; i < links.length; i++) {
-          var link = links[i];
-          if (link.rel !== 'stylesheet') continue;
-          var clonedLink = link.cloneNode(true);
-          var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
-          if (newHref !== link.href) {
-            clonedLink.href = newHref;
-          }
-          else {
-            var indexOfQuest = newHref.indexOf('?');
-            if (indexOfQuest >= 0) {
-              // to support ?foo#hash
-              clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
-                newHref.substring(indexOfQuest + 1);
-            }
-            else {
-              clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
-            }
-          }
-          link.replaceWith(clonedLink);
-        }
-      }
-    };
-  })();
-</script></body></html>
+<script src="/socket.io/socket.io.js"></script>
+</body>
+</html>
