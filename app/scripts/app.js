@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('T-FlixServerApp', [
+  .module('t-flixServerApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',

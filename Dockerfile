@@ -1,4 +1,4 @@
-# Build T-Flix server
+# Build t-flix server
 FROM node:14-alpine as build
 
 RUN apk --no-cache add git && \
@@ -27,7 +27,7 @@ RUN mkdir release && \
 
 # Create final image
 FROM node:14-alpine
-ENV T-Flix_CONFIG_PATH /app/config
+ENV t-flix_CONFIG_PATH /app/config
 
 RUN apk --no-cache add ffmpeg
 

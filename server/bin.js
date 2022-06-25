@@ -4,7 +4,7 @@
 var STATIC_OPTIONS = { maxAge: 3600000 };
 
 var process = require('process');
-process.title = 'T-Flix-server';
+process.title = 't-flix-server';
 
 var express = require('express'),
   http = require('http'),

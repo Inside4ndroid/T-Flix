@@ -3,7 +3,7 @@
 describe('Service: torrentSocket', function () {
 
   // load the service's module
-  beforeEach(module('T-FlixServerApp'));
+  beforeEach(module('t-flixServerApp'));
 
   // instantiate service
   var torrentSocket;

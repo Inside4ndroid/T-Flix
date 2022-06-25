@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('T-FlixServerApp'));
+  beforeEach(module('t-flixServerApp'));
 
   var MainCtrl, torrentSocket, scope;
 

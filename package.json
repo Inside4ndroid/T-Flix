@@ -1,10 +1,10 @@
 {
-  "name": "T-Flix-server",
-  "version": "0.6.0",
-  "author": "Aliaksei Sapach <dreamsonic@tut.by>",
+  "name": "t-flix-server",
+  "version": "1.0.0",
+  "author": "Inside4ndroid",
   "description": "Streaming torrent client for node.js with web ui.",
   "bin": {
-    "T-Flix-server": "./server/bin.js"
+    "t-flix-server": "./server/bin.js"
   },
   "scripts": {
     "start": "node ./server/bin.js",
@@ -14,13 +14,13 @@
   "main": "./server/bin.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Inside4ndroid/T-Flix.git"
+    "url": "https://github.com/Inside4ndroid/t-flix.git"
   },
   "keywords": [
     "bittorrent",
     "torrent",
     "stream",
-    "T-Flix",
+    "t-flix",
     "server",
     "web"
   ],
