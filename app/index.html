@@ -1,13 +1,12 @@
 <!doctype html>
-<html class="dark">
-<head>
+<html class="dark"><head>
   <meta charset="utf-8">
   <title>T-Flix server</title>
   <meta name="description" content="T-Flix server">
   <meta name="viewport" content="width=device-width">
   <meta name="robots" content="noindex, nofollow">
   <meta name="robots" content="noarchive">
-  <link rel="shortcut icon" href="favicon.ico?new" />
+  <link rel="shortcut icon" href="favicon.ico?new">
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
@@ -121,69 +120,78 @@
 
 
 </head>
-<body ng-app="T-FlixServerApp">
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+<body ng-app="T-FlixServerApp" style="text-align: -webkit-center;">
+<!-- Add your site or application content here -->
+<div class="container" ng-view=""></div>
 
-    <div class="overlay">
-      <video src="" type="video/mp4" width="auto" height="auto" controls></video>
-      <div class="backdrop"></div>
-    </div>
-    <div class="header">
-      <ul class="nav nav-pills pull-right">
-        <li>
-          <a href="https://github.com/Inside4ndroid/T-Flix" target="_blank" style="
-    color: #820012;">
-            <i class="fa-brands fa-github"></i> About</a>
-        </li>
-      </ul>
-      <h3 class="text-muted text-nowrap"><img src="images/logo.png" alt="logo" height="40"><span style="
+<div class="overlay">
+  <video src="" type="video/mp4" width="auto" height="auto" controls=""></video>
+  <div class="backdrop"></div>
+</div>
+<div class="header">
+  <img src="images/logo.png" alt="logo" height="40" style="
+    height: 80px;
+">
+
+  <h3 class="text-muted text-nowrap" style="
+    text-align: center;
+    margin-top: 20px;
+"><span style="
     margin-left: 20px;
-    color: #a94442;">T-Flix server</span></h3>
+    color: #a94442;
+    font-size: xxx-large;
+    "> T-Flix server</span>
+
+
+
+
+  </h3>
+
+</div>
+
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width: 100px;height: 25px;margin-top: 50px;">Login</button>
+
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
-    <h2>Modal Login Form</h2>
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required="">
 
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required="">
 
-    <div id="id01" class="modal">
-
-      <form class="modal-content animate" action="/action_page.php" method="post">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="img_avatar2.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
-          <button type="submit">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </form>
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
     </div>
 
-    <script>
-      // Get the modal
-      var modal = document.getElementById('id01');
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
 
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    </script>
-</body>
-</html>
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+<script src="//185.193.126.191:35729/livereload.js?snipver=1" async="" defer=""></script>
+
+</body></html>
