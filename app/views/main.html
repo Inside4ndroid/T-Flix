@@ -148,12 +148,12 @@
         <li class="list-group-item text-nowrap" ng-repeat="file in torrent.files">
           <input type="checkbox" ng-model="file.selected" ng-click="select(torrent, file)"/>
           <span class="fa fa-cloud-download"></span>
-          <button type="button" class="btn btn-xs play" ng-click="play(file.link)" ng-if="isVideo(file.name)">
-            <span class="fa fa-play"></span>
-          </button>
           <a ng-href="{{ file.link }}" target="_blank" style="color: #ff9795;">
             {{ file.name }} ({{ file.length / 1024 / 1024 | number:1 }} MB)
           </a>
+          <button type="button" class="btn btn-xs play" ng-click="play(file.link)" ng-if="isVideo(file.name)">
+            <span class="fa fa-play"></span>
+          </button>
         </li>
       </ul>
     </div>
