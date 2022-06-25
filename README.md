@@ -11,7 +11,7 @@ Based on [torrent-stream](https://github.com/mafintosh/torrent-stream), inspired
 
 ## Usage
 
-1. `git clone https://github.com/asapach/peerflix-server.git`
+1. `git clone https://github.com/Inside4ndroid/T-Flix.git`
 1. `npm install -g`
 1. `T-Flix-server`
 1. Open your browser at [http://localhost:9000/](http://localhost:9000/)
