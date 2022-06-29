@@ -1,0 +1,98 @@
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none
+}
+
+.pagecustom-link {
+    position: relative;
+    display: block;
+    color: #c37a7a;
+    text-decoration: none;
+    background-color: #232323;
+    border: 1px solid #a34141;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .pagecustom-link {
+        transition: none
+    }
+}
+
+.pagecustom-link:hover {
+    z-index: 2;
+    color: #c37a7a;
+    background-color: #232323;
+    border-color: #a34141
+}
+
+.pagecustom-link:focus {
+    z-index: 3;
+    color: #c37a7a;
+    background-color: #232323;
+    outline: 0;
+    box-shadow: 0 0 0 .15rem rgba(163, 65, 65, .25)
+}
+
+.pagecustom-item:not(:first-child) .pagecustom-link {
+    margin-left: -1px
+}
+
+.pagecustom-item.active .pagecustom-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #c37a7a;
+    border-color: #c37a7a
+}
+
+.pagecustom-item.disabled .pagecustom-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #232323;
+    border-color: #a34141
+}
+
+.pagecustom-link {
+    padding: .375rem .75rem
+}
+
+.pagecustom-item:first-child .pagecustom-link {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem
+}
+
+.pagecustom-item:last-child .pagecustom-link {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem
+}
+
+.pagination-lg .pagecustom-link {
+    padding: .75rem 1.5rem;
+    font-size: 1.25rem
+}
+
+.pagination-lg .pagecustom-item:first-child .pagecustom-link {
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem
+}
+
+.pagination-lg .pagecustom-item:last-child .pagecustom-link {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem
+}
+
+.pagination-sm .pagecustom-link {
+    padding: .25rem .5rem;
+    font-size: .875rem
+}
+
+.pagination-sm .pagecustom-item:first-child .pagecustom-link {
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem
+}
+
+.pagination-sm .pagecustom-item:last-child .pagecustom-link {
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem
+}
