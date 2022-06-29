@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 var fs = require('fs'),
   path = require('path'),
@@ -10,7 +10,7 @@ var fs = require('fs'),
   homePath = process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME'],
   configPath = process.env['t-flix_CONFIG_PATH'] ? process.env['t-flix_CONFIG_PATH'] : path.join(homePath, '.config', 't-flix-server'),
   configFile = path.join(configPath, 'config.json'),
-  storageFile = path.join(configPath, 'torrents.json'),
+  storageFile  = 'temp'
   torrents = {},
   options = {};
 
@@ -48,6 +48,9 @@ function save() {
 
 // noinspection JSVoidFunctionReturnValueUsed
 var store = _.extend(new events.EventEmitter(), {
+  setPath: function (str) {
+    storageFile = path.join(configPath, str+'.json');
+  },
   add: function (link, callback) {
     if (/^(\w{32}|\w{40})$/.test(link)) {
       link = `magnet:?xt=urn:btih:${link}`;

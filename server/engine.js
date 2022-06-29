@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 var torrentStream = require('torrent-stream');
 var _ = require('lodash');

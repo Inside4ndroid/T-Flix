@@ -1,6 +1,4 @@
-'use strict';
-
-global.test = 'user';
+//'use strict';
 
 var rangeParser = require('range-parser'),
   pump = require('pump'),
@@ -19,6 +17,8 @@ var rangeParser = require('range-parser'),
   select = require('soupselect').select,
   magnetRegex = new RegExp(/href="(magnet:\?xt=urn:btih:[^"]*)"/),
   api = express();
+
+store.setPath('testpath')
 
 api.use(bodyParser.json());
 api.use(logger('dev'));

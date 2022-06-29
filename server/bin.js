@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-'use strict';
+//'use strict';
 
 var STATIC_OPTIONS = { maxAge: 3600000 };
 

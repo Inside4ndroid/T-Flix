@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 function closeOverlay() {
   document.querySelector('.overlay').style.display = 'none';

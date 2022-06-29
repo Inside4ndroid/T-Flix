@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 module.exports = function stats(torrent) {
   var swarm = torrent.swarm;
