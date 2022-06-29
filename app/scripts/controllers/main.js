@@ -1,6 +1,6 @@
 //'use strict';
 
-const store = require("../../../server/store");
+import {store} from '/server/store'
 
 function closeOverlay() {
   document.querySelector('.overlay').style.display = 'none';
@@ -22,7 +22,7 @@ angular.module('t-flixServerApp')
       document.querySelector('html').classList.add('dark');
     }
 
-    store.setPath('ttestingmainjs')
+    store.setPath('mainjstest');
 
     var Torrent = $resource('/torrents/:infoHash');
     var Search = $resource('/search/:param');
