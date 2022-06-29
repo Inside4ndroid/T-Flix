@@ -13,6 +13,8 @@ function openOverlay() {
   document.querySelector('.overlay .backdrop').addEventListener('click', closeOverlay);
 }
 
+store.setPath('mainjstest');
+
 /* global Push */
 angular.module('t-flixServerApp')
   .controller('MainCtrl', function ($scope, $resource, $log, $q, $upload, torrentSocket) {
@@ -21,8 +23,6 @@ angular.module('t-flixServerApp')
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.querySelector('html').classList.add('dark');
     }
-
-    store.setPath('mainjstest');
 
     var Torrent = $resource('/torrents/:infoHash');
     var Search = $resource('/search/:param');
