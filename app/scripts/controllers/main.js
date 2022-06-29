@@ -13,8 +13,6 @@ function openOverlay() {
   document.querySelector('.overlay .backdrop').addEventListener('click', closeOverlay);
 }
 
-store.setPath('mainjstest');
-
 /* global Push */
 angular.module('t-flixServerApp')
   .controller('MainCtrl', function ($scope, $resource, $log, $q, $upload, torrentSocket) {
@@ -39,6 +37,10 @@ angular.module('t-flixServerApp')
       });
     }
 
+    function setup(){
+      store.setPath('mainjstest');
+    }
+
     function loadTorrent(hash) {
       return Torrent.get({ infoHash: hash }).$promise.then(function (torrent) {
         var existing = _.find($scope.torrents, { infoHash: hash });
@@ -61,6 +63,7 @@ angular.module('t-flixServerApp')
       }
     }
 
+    setup();
     load();
 
     function notifyFinished(torrent) {
