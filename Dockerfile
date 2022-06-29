@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 COPY app app
-COPY server server
+COPY app/server server
 COPY bower.json .
 COPY .bowerrc .
 COPY Gruntfile.js .

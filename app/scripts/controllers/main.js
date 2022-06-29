@@ -1,7 +1,5 @@
 //'use strict';
 
-import {store} from '/server/store'
-
 function closeOverlay() {
   document.querySelector('.overlay').style.display = 'none';
   document.querySelector('.overlay video').src = '';
@@ -35,10 +33,6 @@ angular.module('t-flixServerApp')
       var torrents = Torrent.query(function () {
         $scope.torrents = torrents.reverse();
       });
-    }
-
-    function setup(){
-      store.setPath('mainjstest');
     }
 
     function loadTorrent(hash) {

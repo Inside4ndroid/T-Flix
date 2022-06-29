@@ -4,14 +4,14 @@
   "author": "Inside4ndroid",
   "description": "Streaming torrent client for node.js with web ui.",
   "bin": {
-    "t-flix-server": "./server/bin.js"
+    "t-flix-server": "app/server/bin.js"
   },
   "scripts": {
-    "start": "node ./server/bin.js",
+    "start": "node app/server/bin.js",
     "test": "grunt test",
     "prepack": "grunt build"
   },
-  "main": "./server/bin.js",
+  "main": "app/server/bin.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Inside4ndroid/t-flix.git"

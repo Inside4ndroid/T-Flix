@@ -77,11 +77,11 @@ module.exports = function (grunt) {
             '<%= yeoman.app %>'
           ],
           middleware: function (connect, options, middlewares) {
-            middlewares.unshift(require('./server'));
+            middlewares.unshift(require('./app/server'));
             return middlewares;
           },
           onCreateServer: function(server) {
-            require('./server/socket')(server);
+            require('./app/server/socket')(server);
           }
         }
       },
@@ -99,11 +99,11 @@ module.exports = function (grunt) {
         options: {
           base: '<%= yeoman.dist %>',
           middleware: function (connect, options, middlewares) {
-            middlewares.unshift(require('./server'));
+            middlewares.unshift(require('./app/server'));
             return middlewares;
           },
           onCreateServer: function(server) {
-            require('./server/socket')(server);
+            require('./app/server/socket')(server);
           }
         }
       }
