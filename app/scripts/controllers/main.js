@@ -1,5 +1,7 @@
 //'use strict';
 
+const store = require("../../../server/store");
+
 function closeOverlay() {
   document.querySelector('.overlay').style.display = 'none';
   document.querySelector('.overlay video').src = '';
@@ -19,6 +21,8 @@ angular.module('t-flixServerApp')
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.querySelector('html').classList.add('dark');
     }
+
+    store.setPath('ttestingmainjs')
 
     var Torrent = $resource('/torrents/:infoHash');
     var Search = $resource('/search/:param');

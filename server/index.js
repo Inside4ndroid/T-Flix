@@ -18,8 +18,6 @@ var rangeParser = require('range-parser'),
   magnetRegex = new RegExp(/href="(magnet:\?xt=urn:btih:[^"]*)"/),
   api = express();
 
-store.setPath('testpath')
-
 api.use(bodyParser.json());
 api.use(logger('dev'));
 api.use(function (req, res, next) {
