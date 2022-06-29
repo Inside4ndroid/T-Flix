@@ -57,7 +57,6 @@ angular.module('t-flixServerApp')
       }
     }
 
-    setup();
     load();
 
     function notifyFinished(torrent) {
