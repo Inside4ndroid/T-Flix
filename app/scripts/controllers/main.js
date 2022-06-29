@@ -12,7 +12,7 @@ function openOverlay() {
 }
 
 /* global Push */
-angular.module('t-flixServerApp')
+angular.module('T-flixServerApp')
   .controller('MainCtrl', function ($scope, $resource, $log, $q, $upload, torrentSocket) {
 
     // Get darkmode status from system

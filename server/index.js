@@ -1,5 +1,7 @@
 'use strict';
 
+global.test = 'user';
+
 var rangeParser = require('range-parser'),
   pump = require('pump'),
   _ = require('lodash'),
